@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: process.env.NODE_ENV === 'development' ? '.next/dev' : '.next/build',
+  reactStrictMode: true, // Enables strict mode for better debugging
+  swcMinify: true, // Enables SWC-based minification for faster builds
 };
 
-export default nextConfig;
+module.exports = nextConfig;
