@@ -1,0 +1,19 @@
+/* styles/global.scss */
+@import 'variables';
+
+body {
+  background-color: $black;
+  color: $selective-yellow;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $harvest-gold;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $selective-yellow;
+}

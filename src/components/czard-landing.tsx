@@ -1,74 +1,64 @@
-import React from 'react';
-import { Github, Twitter, Send, ShieldCheck, TrendingUp, AlertTriangle } from 'lucide-react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
-const CzardLanding = () => {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-900 via-blue-900 to-black text-white">
-      {/* Hero Section */}
-      <header className="container mx-auto px-4 py-16 text-center">
-        <div className="mb-8">
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text">
-            CZARD
-          </h1>
-          <p className="text-2xl text-blue-300">The Crypto Wizard</p>
-        </div>
-        
-        <p className="text-xl mb-8">{"The real magic is patience"}</p>
-        
-        <div className="flex justify-center gap-4 mb-8">
-          <button className="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-bold">
-            Buy on PancakeSwap
-          </button>
-          <button className="border border-purple-600 hover:bg-purple-900 px-6 py-3 rounded-lg font-bold">
-            View Chart
-          </button>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col items-center justify-center">
+      <Head>
+        <title>CZARD - The Crypto Wizard</title>
+        <meta name="description" content="The magic of patience in crypto! Join the CZARD memecoin movement." />
+      </Head>
+      
+      <header className="w-full py-6 text-center">
+        <h1 className="text-5xl font-extrabold tracking-wide text-purple-400 drop-shadow-lg">
+          CZARD - The Market Mage
+        </h1>
+        <p className="mt-4 text-lg text-gray-300">The real magic is patience.</p>
       </header>
-
-      {/* Features Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-4xl font-bold text-center mb-12">Magical Powers</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-purple-900/50 p-6 rounded-lg text-center">
-            <div className="flex justify-center mb-4">
-              <TrendingUp size={48} className="text-purple-400" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Pump Spell</h3>
-            <p>Harness the power of market momentum through ancient trading magic</p>
-          </div>
-          <div className="bg-purple-900/50 p-6 rounded-lg text-center">
-            <div className="flex justify-center mb-4">
-              <ShieldCheck size={48} className="text-purple-400" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">HODL Shield</h3>
-            <p>Protection against FUD and panic selling with mystical barriers</p>
-          </div>
-          <div className="bg-purple-900/50 p-6 rounded-lg text-center">
-            <div className="flex justify-center mb-4">
-              <AlertTriangle size={48} className="text-purple-400" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Rug Reveal</h3>
-            <p>Expose scams before they strike with ancient divination</p>
-          </div>
-        </div>
+      
+      <main className="flex flex-col items-center space-y-8 px-6">
+        <Image 
+          src="/czard-wizard.png" 
+          alt="CZard the Crypto Wizard" 
+          width={300} 
+          height={300} 
+          className="rounded-xl shadow-lg"
+        />
+        
+        <p className="text-center text-xl max-w-2xl">
+          Join CZARD, the master of DeFi sorcery, as he fights off rug pulls, protects HODLers, and boosts market momentum with ancient trading magic!
+        </p>
+        
+        <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full font-semibold text-lg">
+          Join the Magic
+        </Button>
+      </main>
+      
+      <section className="mt-16 text-center max-w-3xl px-6">
+        <h2 className="text-4xl font-bold text-purple-400">Tokenomics</h2>
+        <p className="text-gray-300 mt-4">
+          - Total Supply: 1 Trillion CZARD<br/>
+          - Burn Mechanism: 5% per transaction<br/>
+          - Rewards for HODLers: 3% Reflection<br/>
+          - Anti-Whale System: Max transaction limit enforced
+        </p>
       </section>
 
-      {/* Social Links */}
-      <footer className="container mx-auto px-4 py-16">
-        <div className="flex justify-center gap-8">
-          <a href="#" className="text-purple-400 hover:text-purple-300">
-            <Send size={32} />
-          </a>
-          <a href="#" className="text-purple-400 hover:text-purple-300">
-            <Twitter size={32} />
-          </a>
-          <a href="#" className="text-purple-400 hover:text-purple-300">
-            <Github size={32} />
-          </a>
-        </div>
+      <section className="mt-16 text-center max-w-3xl px-6">
+        <h2 className="text-4xl font-bold text-purple-400">Roadmap</h2>
+        <p className="text-gray-300 mt-4">
+          - Phase 1: Community Building & Initial Airdrop<br/>
+          - Phase 2: CZARD NFT Collection & DEX Listings<br/>
+          - Phase 3: Staking & Utility Development<br/>
+          - Phase 4: Mainstream Partnerships & Growth
+        </p>
+      </section>
+      
+      <footer className="mt-16 pb-10 text-center text-gray-400">
+        <p>Follow us on <a href="#" className="text-purple-400 hover:text-purple-300">Twitter</a> & <a href="#" className="text-purple-400 hover:text-purple-300">Discord</a></p>
+        <p className="mt-2">&copy; 2025 CZARD. All Rights Reserved.</p>
       </footer>
     </div>
   );
-};
-
-export default CzardLanding;
+}

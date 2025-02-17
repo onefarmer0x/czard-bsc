@@ -1,0 +1,52 @@
+/* components/ui/button.module.scss */
+@import '../../styles/variables.scss';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &.default {
+    background-color: $color-primary;
+    color: $color-black;
+
+    &:hover {
+      background-color: lighten($color-primary, 10%);
+    }
+  }
+
+  &.destructive {
+    background-color: $color-secondary;
+    color: $color-black;
+
+    &:hover {
+      background-color: lighten($color-secondary, 10%);
+    }
+  }
+
+  // Add other variants as needed...
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
