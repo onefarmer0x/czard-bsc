@@ -1,4 +1,6 @@
 import './globals.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {

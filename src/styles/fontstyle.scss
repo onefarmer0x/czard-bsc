@@ -1,0 +1,62 @@
+:root {
+    --primary-color: #FFEF33;
+    --shadow-color: #B28B07;
+    --background-color: #000;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.magic-container {
+    position: relative;
+    display: inline-block;
+}
+
+.magic-text {
+    font-family: 'MedievalSharp', sans-serif;
+    font-size: 45px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    text-align: center;
+    letter-spacing: 1.8px;
+    text-shadow: 0 0 5px var(--shadow-color), 0 0 10px var(--primary-color);
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px var(--shadow-color), 0 0 10px var(--primary-color);
+    }
+    100% {
+        text-shadow: 0 0 10px var(--shadow-color), 0 0 20px var(--primary-color);
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 6px; /* Reduced size for subtlety */
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: sparkle-animation 2s infinite ease-in-out; /* Added easing */
+}
+
+@keyframes sparkle-animation {
+    0%, 100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}

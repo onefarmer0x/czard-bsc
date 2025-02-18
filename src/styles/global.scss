@@ -1,5 +1,7 @@
 /* styles/global.scss */
+
 @import 'variables';
+@import 'fontstyle';
 
 body {
   background-color: $black;
@@ -17,3 +19,10 @@ a {
 h1, h2, h3, h4, h5, h6 {
   color: $selective-yellow;
 }
+
+.contract-section {
+  background-image: url('/images/czard-contract-card.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
