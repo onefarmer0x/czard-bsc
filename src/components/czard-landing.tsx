@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import ParticleAnimation from './ParticleAnimation';
 
 const CzardLanding: React.FC = () => {
   const [contractAddress] = useState('0xDFa7e9C060dc5292c881Eb48cfe26b27aeF5f0D9');
@@ -12,7 +13,12 @@ const CzardLanding: React.FC = () => {
   return (
     <div className="max-xl:bg-black">
       <main className="mx-auto max-w-[120rem]">
-        <div className="relative  main-bg flex h-screen flex-col gap-1 overflow-hidden object-contain">
+        <div className="relative main-bg flex h-screen flex-col gap-1 overflow-hidden object-contain">
+          {/* Particle Animation */}
+          <div className="absolute inset-0 z-[5]">
+            <ParticleAnimation />
+          </div>
+
           {/* Logo */}
           <img 
             src="/logo/logo-full.png" 
@@ -24,11 +30,11 @@ const CzardLanding: React.FC = () => {
           <img 
             src="/images/czard-bg-desktop-test2.png" 
             alt="" 
-            className="absolute z-10 h-full w-full min-xl:block max-xl:hidden"
+            className="absolute z-[1] h-full w-full min-xl:block max-xl:hidden"
           />
 
           {/* Video Background - Mobile Only */}
-          <div className="hidden max-xl:block">
+          <div className="hidden max-xl:block z-[1]">
             <video
               autoPlay
               loop
@@ -41,7 +47,7 @@ const CzardLanding: React.FC = () => {
           </div>
 
           {/* Mobile Background Overlay */}
-          <div className="absolute top-0 w-full">
+          <div className="absolute top-0 w-full z-[2]">
             <img 
               src="/images/bg-home-mb.png" 
               alt="" 
@@ -49,6 +55,7 @@ const CzardLanding: React.FC = () => {
             />
           </div>
 
+          {/* Rest of your existing code remains the same, just ensure z-indices are correct */}
           {/* Main Content - Desktop */}
           <div className="max-w-screen-default absolute bottom-5 left-1/2 z-10 mx-auto flex w-full -translate-x-1/2 items-center justify-between px-4 max-[1800px]:scale-90 max-xl:hidden lg:px-6">
             {/* Left Section - Title */}
@@ -115,6 +122,7 @@ const CzardLanding: React.FC = () => {
 
           {/* Bottom Section - Mobile */}
           <div className="absolute bottom-0 left-0 right-0 z-50 mx-auto hidden max-xl:flex items-center justify-center">
+            <div className="absolute bottom-0 left-0 right-0 z-50 mx-auto hidden max-xl:flex items-center justify-center">
             <img src="/images/bg-bottom.png" alt="" className="w-full" />
             <div className="absolute flex w-full flex-col gap-2 px-[2rem] pt-10">
               <div className="flex w-full items-center justify-between">
@@ -152,6 +160,11 @@ const CzardLanding: React.FC = () => {
               </div>
             </div>
           </div>
+            {/* Your existing mobile bottom section */}
+            {/* ... */}
+          </div>
+          
+          {/* The rest of your existing JSX remains unchanged */}
         </div>
       </main>
     </div>
