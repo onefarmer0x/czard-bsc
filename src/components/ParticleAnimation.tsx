@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 const ParticleAnimation: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+
   useEffect(() => {
     if (!canvasRef.current) return;
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return; // ✅ Prevent null errors
 
     let animationFrameId: number;
     let particles: Particle[] = [];
@@ -18,7 +18,6 @@ const ParticleAnimation: React.FC = () => {
 
     // Set canvas size
     const updateSize = () => {
-      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
@@ -31,61 +30,69 @@ const ParticleAnimation: React.FC = () => {
       rx: 0,
       ry: 0,
       speed: 45,
-      delta: 0
+      delta: 0,
     };
 
     let then = Date.now();
 
     class Particle {
-      h: number;
-      s: number;
-      l: number;
-      a: number;
-      color: string;
-      shadowcolor: string;
       x: number;
       y: number;
       direction: { x: number; y: number };
       radius: number;
       scale: number;
       rotation: number;
-      grad: CanvasGradient;
       vx: number;
       vy: number;
       valpha: number;
+      color: string;
+      shadowcolor: string;
+      grad: CanvasGradient | null;
 
       constructor() {
-        this.h = 45;
-        this.s = parseInt((40 * Math.random() + 30).toString());
-        this.l = parseInt((40 * Math.random() + 30).toString());
-        this.a = 0.5 * Math.random();
+        const h = 45;
+        const s = 40 * Math.random() + 30;
+        const l = 40 * Math.random() + 30;
+        const a = 0.5 * Math.random();
 
-        this.color = `hsla(${this.h},${this.s}%,${this.l}%,${this.a})`;
-        this.shadowcolor = `hsla(${this.h},${this.s}%,${this.l}%,${parseFloat((this.a-0.55).toString())})`;
+        this.color = `hsla(${h},${s}%,${l}%,${a})`;
+        this.shadowcolor = `hsla(${h},${s}%,${l}%,${a - 0.55})`;
 
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.direction = {
           x: -1 + Math.random() * 2,
-          y: -1 + Math.random() * 2
+          y: -1 + Math.random() * 2,
         };
 
         this.radius = this.randomNorm(0, 4);
         this.scale = 0.8 * Math.random() + 0.5;
-        this.rotation = Math.PI/4 * Math.random();
+        this.rotation = (Math.PI / 4) * Math.random();
 
-        this.grad = ctx.createRadialGradient(this.x, this.y, this.radius, this.x, this.y, 0);
-        this.grad.addColorStop(0, this.color);
-        this.grad.addColorStop(1, this.shadowcolor);
+        this.grad = ctx
+          ? ctx.createRadialGradient(this.x, this.y, this.radius, this.x, this.y, 0)
+          : null;
+        if (this.grad) {
+          this.grad.addColorStop(0, this.color);
+          this.grad.addColorStop(1, this.shadowcolor);
+        }
 
-        this.vx = (2 * Math.random() + 4) * .01 * this.radius;
-        this.vy = (2 * Math.random() + 4) * .01 * this.radius;
-        
+        this.vx = (2 * Math.random() + 4) * 0.01 * this.radius;
+        this.vy = (2 * Math.random() + 4) * 0.01 * this.radius;
+
         this.valpha = 0.01 * Math.random() - 0.02;
       }
 
       randomNorm(mean: number, stdev: number) {
-        return Math.abs(Math.round((Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1))*stdev)+mean;
+        return (
+          Math.abs(
+            Math.round(
+              (Math.random() * 2 - 1) +
+                (Math.random() * 2 - 1) +
+                (Math.random() * 2 - 1)
+            ) * stdev
+          ) + mean
+        );
       }
 
       move() {
@@ -94,20 +101,22 @@ const ParticleAnimation: React.FC = () => {
         this.rotation += this.valpha;
       }
 
-      changeDirection(axis: 'x' | 'y') {
+      changeDirection(axis: "x" | "y") {
         this.direction[axis] *= -1;
         this.valpha *= -1;
       }
 
       draw() {
+        if (!ctx || !this.grad) return; // ✅ Prevent null errors
+
         ctx.save();
-        ctx.translate(this.x+mouse.rx/-20*this.radius, this.y+mouse.ry/-20*this.radius);
+        ctx.translate(
+          this.x + (mouse.rx / -20) * this.radius,
+          this.y + (mouse.ry / -20) * this.radius
+        );
         ctx.rotate(this.rotation);
         ctx.scale(1, this.scale);
-        
-        this.grad = ctx.createRadialGradient(0, 0, this.radius, 0, 0, 0);
-        this.grad.addColorStop(1, this.color);
-        this.grad.addColorStop(0, this.shadowcolor);
+
         ctx.beginPath();
         ctx.fillStyle = this.grad;
         ctx.arc(0, 0, this.radius, 0, Math.PI * 2, false);
@@ -116,18 +125,18 @@ const ParticleAnimation: React.FC = () => {
       }
 
       boundaryCheck() {
-        if (this.x >= canvas.width*1.2) {
-          this.x = canvas.width*1.2;
+        if (this.x >= canvas.width * 1.2) {
+          this.x = canvas.width * 1.2;
           this.changeDirection("x");
-        } else if (this.x <= -canvas.width*0.2) {
-          this.x = -canvas.width*0.2;
+        } else if (this.x <= -canvas.width * 0.2) {
+          this.x = -canvas.width * 0.2;
           this.changeDirection("x");
         }
-        if (this.y >= canvas.height*1.2) {
-          this.y = canvas.height*1.2;
+        if (this.y >= canvas.height * 1.2) {
+          this.y = canvas.height * 1.2;
           this.changeDirection("y");
-        } else if (this.y <= -canvas.height*0.2) {
-          this.y = -canvas.height*0.2;
+        } else if (this.y <= -canvas.height * 0.2) {
+          this.y = -canvas.height * 0.2;
           this.changeDirection("y");
         }
       }
@@ -135,12 +144,13 @@ const ParticleAnimation: React.FC = () => {
 
     const init = () => {
       particles = Array.from({ length: particleCount }, () => new Particle());
-      ctx.globalCompositeOperation = "lighter";
+      if (ctx) ctx.globalCompositeOperation = "lighter";
     };
 
     const animate = () => {
+      if (!ctx) return; // ✅ Prevent null errors
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       const now = Date.now();
       mouse.delta = (now - then) / 1000;
       then = now;
@@ -150,12 +160,12 @@ const ParticleAnimation: React.FC = () => {
         const distY = mouse.y - mouse.ry;
 
         if (distX !== 0 && distY !== 0) {
-          mouse.rx -= ((mouse.rx - mouse.x) / mouse.speed);
-          mouse.ry -= ((mouse.ry - mouse.y) / mouse.speed);
+          mouse.rx -= (mouse.rx - mouse.x) / mouse.speed;
+          mouse.ry -= (mouse.ry - mouse.y) / mouse.speed;
         }
       }
 
-      particles.forEach(particle => {
+      particles.forEach((particle) => {
         particle.move();
         particle.boundaryCheck();
         particle.draw();
@@ -167,19 +177,19 @@ const ParticleAnimation: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX || e.pageX;
       mouse.y = e.clientY || e.pageY;
-      mouse.x -= canvas.width/2;
-      mouse.y -= canvas.height/2;
+      mouse.x -= canvas.width / 2;
+      mouse.y -= canvas.height / 2;
     };
 
-    window.addEventListener('resize', updateSize);
-    document.addEventListener('mousemove', handleMouseMove);
-    
+    window.addEventListener("resize", updateSize);
+    document.addEventListener("mousemove", handleMouseMove);
+
     init();
     animate();
 
     return () => {
-      window.removeEventListener('resize', updateSize);
-      document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("resize", updateSize);
+      document.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -188,11 +198,11 @@ const ParticleAnimation: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="w-full h-full"
-      style={{ 
-        position: 'absolute',
+      style={{
+        position: "absolute",
         top: 0,
         left: 0,
-        pointerEvents: 'none'
+        pointerEvents: "none",
       }}
     />
   );
