@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Mystery+Quest&display=swap');
+
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Mystery Quest', sans-serif;
 }
 
 @layer base {
@@ -75,4 +78,55 @@ body {
   .border-border {
     border-color: hsl(240, 5%, 84%);
   }
+}
+
+@keyframes neon {
+  0% {
+    text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+    0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 10px var(--shadow-color-light),
+    0 0 10px var(--shadow-color), 0 0 5px var(--shadow-color), 0 0 10px var(--shadow-color), 0 0 20px var(--shadow-color), 0 0 20px var(--shadow-color), 0 0 20px var(--shadow-color);
+  }
+  50% {
+    text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+    0 0 5px var(--shadow-color-light), 0 0 15px var(--shadow-color-light), 0 0 25px var(--shadow-color-light),
+    0 0 15px var(--shadow-color), 0 0 20px var(--shadow-color), 0 0 25px var(--shadow-color), 0 0 30px var(--shadow-color), 0 0 28px var(--shadow-color), 0 0 40px var(--shadow-color);
+  }
+  100% {
+    text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+    0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 10px var(--shadow-color-light),
+    0 0 10px var(--shadow-color), 0 0 5px var(--shadow-color), 0 0 10px var(--shadow-color), 0 0 20px var(--shadow-color), 0 0 20px var(--shadow-color), 0 0 20px var(--shadow-color);
+  }
+}
+
+:root {
+  --shadow-color: #FFC000;
+  --shadow-color-light: #FFC70B;
+}
+
+/* p {
+  letter-spacing:1.8px;
+  margin: calc(50vh - 40px) auto 0 auto;
+  font-size: 45px;
+  text-transform: uppercase;
+  font-family: "Mystery Quest", sans-serif;
+  display: block;
+  height: auto;
+  text-align: center;
+  font-weight: 300;
+} */
+
+.logo-1 {
+  font-family: 'Mystery Quest', serif;
+    color: #fffbc7;
+    font-weight: 300;
+    animation: neon 3s infinite;
+    letter-spacing: 1.8px;
+}
+
+.logo{
+  height: 40px!important;
+}
+
+.main-bg{
+  background: repeating-linear-gradient(45deg, rgba(226, 226, 226,0.06) 0px, rgba(226, 226, 226,0.06) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
 }

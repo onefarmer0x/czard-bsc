@@ -1,64 +1,161 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+"use client";
 
-export default function Home() {
+import React, { useState } from 'react';
+
+const CzardLanding: React.FC = () => {
+  const [contractAddress] = useState('0xDFa7e9C060dc5292c881Eb48cfe26b27aeF5f0D9');
+
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(contractAddress);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col items-center justify-center">
-      <Head>
-        <title>CZARD - The Crypto Wizard</title>
-        <meta name="description" content="The magic of patience in crypto! Join the CZARD memecoin movement." />
-      </Head>
-      
-      <header className="w-full py-6 text-center">
-        <h1 className="text-5xl font-extrabold tracking-wide text-purple-400 drop-shadow-lg">
-          CZARD - The Market Mage
-        </h1>
-        <p className="mt-4 text-lg text-gray-300">The real magic is patience.</p>
-      </header>
-      
-      <main className="flex flex-col items-center space-y-8 px-6">
-        <Image 
-          src="/czard-wizard.png" 
-          alt="CZard the Crypto Wizard" 
-          width={300} 
-          height={300} 
-          className="rounded-xl shadow-lg"
-        />
-        
-        <p className="text-center text-xl max-w-2xl">
-          Join CZARD, the master of DeFi sorcery, as he fights off rug pulls, protects HODLers, and boosts market momentum with ancient trading magic!
-        </p>
-        
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full font-semibold text-lg">
-          Join the Magic
-        </Button>
-      </main>
-      
-      <section className="mt-16 text-center max-w-3xl px-6">
-        <h2 className="text-4xl font-bold text-purple-400">Tokenomics</h2>
-        <p className="text-gray-300 mt-4">
-          - Total Supply: 1 Trillion CZARD<br/>
-          - Burn Mechanism: 5% per transaction<br/>
-          - Rewards for HODLers: 3% Reflection<br/>
-          - Anti-Whale System: Max transaction limit enforced
-        </p>
-      </section>
+    <div className="max-xl:bg-black">
+      <main className="mx-auto max-w-[120rem]">
+        <div className="relative  main-bg flex h-screen flex-col gap-1 overflow-hidden object-contain">
+          {/* Logo */}
+          <img 
+            src="/logo/logo-full.png" 
+            alt="" 
+            className="absolute left-[50%] top-3 z-10 h-[1.25rem] translate-x-[-50%] md:top-8 md:h-[3rem]"
+          />
 
-      <section className="mt-16 text-center max-w-3xl px-6">
-        <h2 className="text-4xl font-bold text-purple-400">Roadmap</h2>
-        <p className="text-gray-300 mt-4">
-          - Phase 1: Community Building & Initial Airdrop<br/>
-          - Phase 2: CZARD NFT Collection & DEX Listings<br/>
-          - Phase 3: Staking & Utility Development<br/>
-          - Phase 4: Mainstream Partnerships & Growth
-        </p>
-      </section>
-      
-      <footer className="mt-16 pb-10 text-center text-gray-400">
-        <p>Follow us on <a href="#" className="text-purple-400 hover:text-purple-300">Twitter</a> & <a href="#" className="text-purple-400 hover:text-purple-300">Discord</a></p>
-        <p className="mt-2">&copy; 2025 CZARD. All Rights Reserved.</p>
-      </footer>
+          {/* Desktop Background */}
+          <img 
+            src="/images/czard-bg-desktop-test2.png" 
+            alt="" 
+            className="absolute z-10 h-full w-full min-xl:block max-xl:hidden"
+          />
+
+          {/* Video Background - Mobile Only */}
+          <div className="hidden max-xl:block">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute h-screen w-full object-cover"
+            >
+              <source src="/videos/bg-home-1.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* Mobile Background Overlay */}
+          <div className="absolute top-0 w-full">
+            <img 
+              src="/images/bg-home-mb.png" 
+              alt="" 
+              className="hidden h-screen w-full max-xl:flex"
+            />
+          </div>
+
+          {/* Main Content - Desktop */}
+          <div className="max-w-screen-default absolute bottom-5 left-1/2 z-10 mx-auto flex w-full -translate-x-1/2 items-center justify-between px-4 max-[1800px]:scale-90 max-xl:hidden lg:px-6">
+            {/* Left Section - Title */}
+            <div className="ml-10 flex h-[24.4375rem] w-[29.28rem] items-center justify-center max-[1440px]:ml-20">
+              <div className="logo-1 font-orb max-w-[31.25rem] text-[4.375rem] font-bold leading-[3.9375rem]">
+                The real magic is patience
+              </div>
+            </div>
+
+            {/* Right Section - Contract & Social */}
+            <div 
+              className="mr-10 flex h-[24.4375rem] w-[38rem] items-center justify-center bg-[url('/images/czard-contract-card.png')] bg-contain bg-no-repeat"
+              style={{ backgroundSize: '100% 100%' }}
+            >
+              <div className="flex w-[24.6875rem] flex-col gap-4">
+
+
+                {/* Contract Section */}
+                <div className="flex w-full items-center gap-4">
+                  <div className="logo-1 font-orb text-center text-lg font-bold">
+                    CONTRACT
+                  </div>
+                  <div className="border-primary-500 flex w-full items-center gap-4 rounded-lg border border-solid p-[8px_16px]">
+                    <a 
+                      href={`https://pancakeswap.finance/?outputCurrency=BNB&inputCurrency=${contractAddress}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary-500 font-orb flex h-4 w-[12.125rem] items-center justify-center rounded-sm text-center text-lg font-bold"
+                    >
+                      {`${contractAddress.slice(0, 4)} ... ${contractAddress.slice(-4)}`}
+                    </a>
+                    <button onClick={handleCopyAddress} className="cursor-pointer active:scale-95">
+                      <img src="/icons/icon-copy.svg" alt="Copy" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Social Links Section */}
+                <div className="flex w-full items-center justify-between">
+                  <div className="logo-1 font-orb max-w-[10rem] text-center text-[1.25rem] font-bold">
+                    JOIN CZARD COMMUNITY
+                  </div>
+                  <div className="flex items-center gap-6">
+                    <button className="bg-primary-500 flex h-20 w-20 cursor-pointer items-center justify-center rounded-xl active:scale-95">
+                      <img src="/images/x.svg" alt="X" />
+                    </button>
+                    <button className="bg-primary-500 flex h-20 w-20 cursor-pointer items-center justify-center rounded-xl active:scale-95">
+                      <img src="/images/telegram.svg" alt="Telegram" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content - Mobile */}
+          <div className="max-w-screen-default absolute left-1/2 top-[66%] z-50 mx-auto hidden w-full -translate-x-1/2 -translate-y-1/2 items-center justify-between px-4 max-mobile:scale-[0.85] max-xl:flex max-md:flex-col lg:px-6">
+            <div className="relative z-50 mx-auto flex items-center justify-center">
+              <div className="logo-1 font-orb max-w-[22.4rem] pt-6 text-center text-[2.5rem] font-bold leading-[100%]">
+                The real magic is patience
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section - Mobile */}
+          <div className="absolute bottom-0 left-0 right-0 z-50 mx-auto hidden max-xl:flex items-center justify-center">
+            <img src="/images/bg-bottom.png" alt="" className="w-full" />
+            <div className="absolute flex w-full flex-col gap-2 px-[2rem] pt-10">
+              <div className="flex w-full items-center justify-between">
+                <div className="logo-1 font-orb max-w-[7.875rem] text-left text-xs font-bold">
+                  Contract
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="border-primary-500 flex w-full items-center gap-2 rounded-lg border border-solid p-[4px_8px]">
+                    <a 
+                      href={`https://pancakeswap.finance/?outputCurrency=BNB&inputCurrency=${contractAddress}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary-500 font-orb flex h-4 w-[8rem] items-center justify-center rounded-sm text-center text-sm font-bold"
+                    >
+                      {`${contractAddress.slice(0, 4)} ... ${contractAddress.slice(-4)}`}
+                    </a>
+                    <button onClick={handleCopyAddress} className="cursor-pointer active:scale-95">
+                      <img src="/icons/icon-copy.svg" alt="Copy" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex w-full items-center justify-between">
+                <div className="logo-1 font-orb max-w-[7.875rem] text-left text-xs font-bold">
+                  JOIN CZARD COMMUNITY
+                </div>
+                <div className="flex items-center gap-2">
+                  <button className="bg-primary-500 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl active:scale-95">
+                    <img className="w-1/2" src="/images/x.svg" alt="X" />
+                  </button>
+                  <button className="bg-primary-500 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl active:scale-95">
+                    <img className="w-1/2" src="/images/telegram.svg" alt="Telegram" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
-}
+};
+
+export default CzardLanding;
