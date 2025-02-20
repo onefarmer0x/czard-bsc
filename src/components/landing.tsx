@@ -14,6 +14,9 @@ const Landing: React.FC = () => {
 
   return (
     <div className="container-fluid main-bg p-0 m-auto d-flex flex-column min-vh-100">
+
+    <ParticleAnimation />
+    
       {/* Desktop Background */}
       <div className="frame-wrapper">
         <div className="container frame-content">
