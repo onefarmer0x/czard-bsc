@@ -1,9 +1,10 @@
 import './globals.css';
 import '../styles/global.scss';
-import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import { Analytics } from '@vercel/analytics/react';
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'CZARD - The Crypto Wizard',
   description: 'Master of DeFi sorcery, protecting HODLers with ancient trading magic',
 };
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -23,7 +25,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
