@@ -2,23 +2,24 @@
 
 @import 'variables';
 @import 'fontstyle';
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=MedievalSharp&family=Mystery+Quest&display=swap');
 
-body {
-  background-color: $black;
-  color: $selective-yellow;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+// body {
+//   background-color: $color-black;
+//   color: $color-primary;
+//   font-family: Arial, sans-serif;
+//   margin: 0;
+//   padding: 0;
+// }
 
-a {
-  color: $harvest-gold;
-  text-decoration: none;
-}
+// a {
+//   color: $color-secondary;
+//   text-decoration: none;
+// }
 
-h1, h2, h3, h4, h5, h6 {
-  color: $selective-yellow;
-}
+// h1, h2, h3, h4, h5, h6 {
+//   color: $color-primary;
+// }
 
 .contract-section {
   background-image: url('/images/czard-contract-card.png');
@@ -26,3 +27,105 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat;
 }
 
+.frame-wrapper{
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  background-image: url('/images/czard-bg-desktop-test2.png');
+
+  @media screen and (max-width: 992px) {
+    background-image: url('/images/czard-mobile-bg.png');
+
+  }
+
+  .frame-content{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .video-wrapper{
+    width: 300px;
+    margin: auto;
+    position: relative;
+    &::before{
+      position: absolute;
+      content:  '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      -webkit-mask: radial-gradient(circle, #0000000d 145px, rgb(0 0 0) 145px);
+      background: repeating-linear-gradient(45deg, rgba(226, 226, 226, 0.06) 0px, rgba(226, 226, 226, 0.06) 2px, transparent 2px, transparent 4px), linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
+    }
+  }
+}
+
+.description-section-wrapper{
+  height: 100%;
+  display: flex;
+  .magic-container{
+    margin: auto;
+    max-width: 350px;
+  }
+}
+
+
+.contract-section-wrapper{
+  .contract-section{
+    width: 550px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/images/czard-contract-card.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .contract-text{
+      font-size: 15px;
+      text-decoration: none;
+      color: #fff;
+      letter-spacing: 1.2px;
+    }
+
+    @media screen and (max-width: 992px){
+      width: 100%;
+      height: 260px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url(/images/czard-contract-card.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-bottom: 60px !important;
+    }
+  }
+}
+
+.button-wrapper{
+  width: 55px;
+  display: flex;
+  border: 1px solid #ffc107;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 2px #aba129;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+    &:hover{
+      box-shadow: 1px 1px 10px 6px #aba129;
+    }
+
+  @media screen and (max-width: 992px){
+    width: 20px;
+    padding: 5px;
+  }
+}
+
+.main-bg{
+  background: repeating-linear-gradient(45deg, rgba(226, 226, 226,0.06) 0px, rgba(226, 226, 226,0.06) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
+}
