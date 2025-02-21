@@ -126,7 +126,7 @@ const Landing: React.FC = () => {
                                 <div className="contract-section m-auto">
                                   <div className="social-items-wrapper flex flex-col gap-4">
                                     {/* Contract Section */}
-                                    <div className="items-center">
+                                    <div className="items-center mb-4">
                                       <div className="font-orb text-center">
                                         <div className="magic-container d-flex">
                                           <p className="magic-text m-auto">
