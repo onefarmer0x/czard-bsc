@@ -81,7 +81,7 @@ const Landing: React.FC = () => {
                                   <span className="roadmap-point magic-text">{`Wizard’s Prophecy`}</span>
                                 </li> */}
                                 <li>
-                                  <span className="roadmap-point magic-text">{`Agent As A Service - First Ever AaaS`}</span>
+                                  <span className="roadmap-point magic-text">{`Agent As A Service`}</span>
                                 </li>
                                 <li>
                                   <span className="roadmap-point magic-text blur">{`Staking`}</span>

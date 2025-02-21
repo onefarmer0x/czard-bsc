@@ -4,28 +4,10 @@
 @import "fontstyle";
 @import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=MedievalSharp&family=Mystery+Quest&display=swap");
 
-// body {
-//   background-color: $color-black;
-//   color: $color-primary;
-//   font-family: Arial, sans-serif;
-//   margin: 0;
-//   padding: 0;
-// }
-
-// a {
-//   color: $color-secondary;
-//   text-decoration: none;
-// }
-
-// h1, h2, h3, h4, h5, h6 {
-//   color: $color-primary;
-// }
-
 .frame-wrapper {
   height: 100vh;
 
-
-  .frame-bg{
+  .frame-bg {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -39,21 +21,21 @@
     left: 0;
     width: 100%;
     height: 100%;
-  
+
     @media screen and (max-width: 992px) {
       background-image: url("/images/czard-mobile-bg.png");
     }
   }
 
-  .main-bg{
+  .main-bg {
     background: repeating-linear-gradient(
-      45deg,
-      rgba(226, 226, 226, 0.06) 0px,
-      rgba(226, 226, 226, 0.06) 2px,
-      transparent 2px,
-      transparent 4px
-    ),
-    linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
+        45deg,
+        rgba(226, 226, 226, 0.06) 0px,
+        rgba(226, 226, 226, 0.06) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
     left: 0;
     width: 100%;
     height: 100%;
@@ -61,7 +43,7 @@
     z-index: 1;
   }
 
-  .main-content{
+  .main-content {
     position: relative;
     z-index: 2;
   }
@@ -74,11 +56,11 @@
     // bottom: 0;
   }
 
-  .social-items-wrapper{
-    font-size: 14px!important;
+  .social-items-wrapper {
+    font-size: 14px !important;
   }
 
-  .video{
+  .video {
     position: absolute;
     left: 0;
     width: 100%;
@@ -103,7 +85,11 @@
         width: 100%;
         height: 100%;
         backdrop-filter: blur(10px);
-        -webkit-mask: radial-gradient(circle, #0000000d 145px, rgb(0 0 0) 145px);
+        -webkit-mask: radial-gradient(
+          circle,
+          #0000000d 145px,
+          rgb(0 0 0) 145px
+        );
         background: repeating-linear-gradient(
             45deg,
             rgba(226, 226, 226, 0.06) 0px,
@@ -123,7 +109,7 @@
     justify-content: center;
     @media screen and (max-width: 992px) {
       min-height: 230px;
-        max-width: 200px;
+      max-width: 200px;
     }
     .description-section-wrapper {
       margin: auto;
@@ -159,27 +145,25 @@
         @media screen and (max-width: 992px) {
           width: 300px;
         }
-        .roadmap-points{
-          .points{
+        .roadmap-points {
+          .points {
             padding: 15px 0 15px 20px;
             display: block;
             @media screen and (max-width: 992px) {
               padding: 30px 0 30px 20px;
             }
-            .magic-text{
+            .magic-text {
               font-size: 13px;
               @media screen and (max-width: 992px) {
                 font-size: 11px;
                 letter-spacing: 0.4px;
-                line-height: 16px!important;
-              
+                line-height: 16px !important;
               }
             }
           }
         }
-        .roadmap-point-wrapper{
-          
-          .roadmap-point{
+        .roadmap-point-wrapper {
+          .roadmap-point {
             display: block;
           }
         }
@@ -256,9 +240,9 @@
     }
   }
 
-  .social-items-wrapper{
+  .social-items-wrapper {
     width: 180px;
-    .social-item-wrapper{
+    .social-item-wrapper {
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -275,7 +259,7 @@
         &:hover {
           box-shadow: 1px 1px 10px 6px #aba129;
         }
-      
+
         @media screen and (max-width: 992px) {
           width: 20px;
           padding: 5px;
