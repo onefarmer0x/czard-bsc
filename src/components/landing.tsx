@@ -34,6 +34,9 @@ const Landing: React.FC = () => {
           {/* Main Content - BG */}
           <div className="main-bg"></div>
 
+           {/* Main Content - BG */}
+           <div className="frame-bg"></div>
+
           <div className="row main-content">
 
             {/* Main Content - Desktop */}
@@ -64,7 +67,7 @@ const Landing: React.FC = () => {
                           <div className="roadmap-title-wrapper">
                             <div className="title">
                               <div className="magic-container d-flex">
-                                <p className="magic-text m-auto">Roadmap</p>
+                                <p className="magic-text m-auto">{`Wizard's Prophecy`}</p>
                                 <div className="sparkle"></div>
                                 <div className="sparkle"></div>
                                 <div className="sparkle"></div>
@@ -73,10 +76,10 @@ const Landing: React.FC = () => {
                           </div>
                           <div className="roadmap-wrapper">
                             <div className="roadmap-points">
-                              <ul>
-                                <li>
+                              <ul className="points">
+                                {/* <li>
                                   <span className="roadmap-point magic-text">{`Wizard’s Prophecy`}</span>
-                                </li>
+                                </li> */}
                                 <li>
                                   <span className="roadmap-point magic-text">{`Agent As A Service - First Ever AaaS`}</span>
                                 </li>
@@ -121,9 +124,9 @@ const Landing: React.FC = () => {
                             <div className="col-12">
                               <div className="contract-section-wrapper d-flex">
                                 <div className="contract-section m-auto">
-                                  <div className="flex flex-col gap-4">
+                                  <div className="social-items-wrapper flex flex-col gap-4">
                                     {/* Contract Section */}
-                                    <div className="flex w-full items-center gap-4">
+                                    <div className="items-center">
                                       <div className="font-orb text-center">
                                         <div className="magic-container d-flex">
                                           <p className="magic-text m-auto">
@@ -159,7 +162,7 @@ const Landing: React.FC = () => {
                                     </div>
 
                                     {/* Social Links Section */}
-                                    <div className="w-full items-center">
+                                    <div className="items-center">
 
                                       {/* X */}
                                       <div className="social-item-wrapper">
