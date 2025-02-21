@@ -166,6 +166,11 @@
               }
             }
           }
+          .blur{
+            -webkit-filter: blur(4px);
+            filter: url('/media/blur.svg#blur');
+            filter: blur(4px);
+          }
         }
         .roadmap-point-wrapper {
           .roadmap-point {
