@@ -24,7 +24,7 @@ const Landing: React.FC = () => {
            <div className="video">
             <div className="video-wrapper">
                 <div className="z-[1]">
-                  <video autoPlay loop muted playsInline className="">
+                  <video autoPlay loop muted playsInline className="video-video">
                     <source src="/videos/bg-home-1.mp4" type="video/mp4" />
                   </video>
                 </div>

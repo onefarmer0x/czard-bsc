@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: 'CZARD - The Crypto Wizard',
   description: 'Master of DeFi sorcery, protecting HODLers with ancient trading magic',
   icons: {
-    icon: '/public/icon.png', // Path to your icon file
-    apple: '/public/apple-icon.png', // Path to your apple touch icon file
+    icon: '/favicon-32x32.png', // Path to your icon file
+    apple: '/apple-touch-icon.png', // Path to your apple touch icon file
   },
 };
 

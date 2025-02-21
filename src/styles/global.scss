@@ -78,6 +78,10 @@
       width: 300px;
       margin: auto;
       position: relative;
+
+      .video-video{
+        width: 300px;
+      }
       &::before {
         position: absolute;
         content: "";
