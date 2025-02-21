@@ -137,7 +137,7 @@ const Landing: React.FC = () => {
                                           <div className="sparkle"></div>
                                         </div>
                                       </div>
-                                      <div className="border-primary-500 flex w-full items-center rounded-lg border border-solid p-[8px_16px]">
+                                      <div className="contract-box">
                                         <a
                                           href={`https://pancakeswap.finance/?outputCurrency=BNB&inputCurrency=${contractAddress}`}
                                           target="_blank"
@@ -151,7 +151,7 @@ const Landing: React.FC = () => {
                                         </a>
                                         <button
                                           onClick={handleCopyAddress}
-                                          className="cursor-pointer active:scale-95"
+                                          className="copy-box"
                                         >
                                           <img
                                             src="/icons/icon-copy.svg"
