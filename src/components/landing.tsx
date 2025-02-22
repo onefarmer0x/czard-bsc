@@ -5,7 +5,7 @@ import ParticleAnimation from "./ParticleAnimation";
 
 const Landing: React.FC = () => {
   const [contractAddress] = useState(
-    "0xDFa7e9C060dc5292c881Eb48cfe26b27aeF5f0D9"
+    "0x55d398326f99059fF775485246999027B3197955"
   );
 
   const handleCopyAddress = () => {
@@ -81,22 +81,22 @@ const Landing: React.FC = () => {
                                   <span className="roadmap-point magic-text">{`Wizard’s Prophecy`}</span>
                                 </li> */}
                                 <li>
-                                  <span className="roadmap-point magic-text">{`Agent As A Service`}</span>
+                                  <span className="roadmap-point magic-text">{`level 1: Agent As A Service`}</span>
                                 </li>
                                 <li>
-                                  <span className="roadmap-point magic-text blur">{`Staking`}</span>
+                                  <span className="roadmap-point magic-text">{`Level 2:`} <span className="blur">{`Staking`}</span></span>
                                 </li>
                                 <li>
-                                  <span className="roadmap-point magic-text blur">{`Ambassador Program`}</span>
+                                  <span className="roadmap-point magic-text">{`Level 3:`}<span className="blur">{`Ambassador Program`}</span></span>
                                 </li>
                                 <li>
-                                  <span className="roadmap-point magic-text blur">{`DAO`}</span>
+                                  <span className="roadmap-point magic-text">{`Level 4:`}<span className="blur">{`DAO`}</span></span>
                                 </li>
                                 <li>
-                                  <span className="roadmap-point magic-text blur">{`NFT Collection`}</span>
+                                  <span className="roadmap-point magic-text">{`Level 5:`}<span className="blur">{`NFT Collection`}</span></span>
                                 </li>
                                 <li>
-                                  <span className="roadmap-point magic-text blur">{`Play2Earn Games`}</span>
+                                  <span className="roadmap-point magic-text">{`Level 6:`}<span className="blur">{`Play2Earn Games`}</span></span>
                                 </li>
                               </ul>
                             </div>
@@ -139,7 +139,7 @@ const Landing: React.FC = () => {
                                       </div>
                                       <div className="contract-box">
                                         <a
-                                          href={`https://pancakeswap.finance/?outputCurrency=BNB&inputCurrency=${contractAddress}`}
+                                          href={`https://pancakeswap.finance/?outputCurrency=${contractAddress}&inputCurrency=BNB`}
                                           target="_blank"
                                           rel="noreferrer"
                                           className="contract-text"
@@ -176,7 +176,7 @@ const Landing: React.FC = () => {
                                             <div className="sparkle"></div>
                                           </div>
                                         </div>
-                                        <a className="button-wrapper" href="https://x.com" target="_blank" rel="noopener noreferrer" >
+                                        <a className="button-wrapper" href="https://x.com/czardmeme" target="_blank" rel="noopener noreferrer" >
                                           <img src="/images/x.svg"  alt="X" />
                                         </a>
                                       </div>
@@ -210,7 +210,7 @@ const Landing: React.FC = () => {
                                             <div className="sparkle"></div>
                                           </div>
                                         </div>
-                                        <a className="button-wrapper" href="https://dexcreener.com" target="_blank" rel="noopener noreferrer" >
+                                        <a className="button-wrapper" href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" >
                                           <img src="/images/dex.png"  alt="DexScreener" />
                                         </a>
                                       </div>
@@ -227,7 +227,7 @@ const Landing: React.FC = () => {
                                             <div className="sparkle"></div>
                                           </div>
                                         </div>
-                                        <a className="button-wrapper" href="https://fourmeme.com" target="_blank" rel="noopener noreferrer" >
+                                        <a className="button-wrapper" href="https://four.meme" target="_blank" rel="noopener noreferrer" >
                                           <img src="/images/fourmeme.webp"  alt="DexScreener" />
                                         </a>
                                       </div>
